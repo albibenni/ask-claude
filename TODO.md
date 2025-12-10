@@ -1,0 +1,3 @@
+- add claude code integration - npm package
+    - make it work on extensions
+    - add loader animation
