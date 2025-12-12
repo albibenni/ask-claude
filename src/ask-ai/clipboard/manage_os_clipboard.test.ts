@@ -20,13 +20,14 @@ describe("setClipboard", () => {
     // Setup mocks
     const mockSpawn = vi.spyOn(childProcess, "spawn").mockReturnValue({
       on: vi.fn((event, callback) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         if (event === "close") callback(0); // Simulate success
         return this;
       }),
       stdout: null,
       stderr: null,
       stdin: null,
-    } as any);
+    } as unknown as ReturnType<typeof childProcess.spawn>);
 
     const mockWriteFile = vi.spyOn(fs, "writeFile").mockResolvedValue();
     const mockUnlink = vi.spyOn(fs, "unlink").mockResolvedValue();
