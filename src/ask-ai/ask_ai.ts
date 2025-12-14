@@ -79,7 +79,7 @@ ${bold}Examples:${reset}
     for await (const chunk of process.stdin) {
       chunks.push(chunk);
     }
-    code = Buffer.concat(chunks).toString('utf-8');
+    code = Buffer.concat(chunks).toString("utf-8");
     context = "From stdin";
   }
   // Clipboard mode (default)
